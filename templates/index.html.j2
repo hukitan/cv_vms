@@ -1,0 +1,174 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{ d.meta.name }} | Portafolio de proyectos de datos</title>
+  <meta name="description" content="Analista de datos bilingüe. Pipelines, automatización y dashboards con Python, SQL y Power BI. {{ d.meta.tagline_es }}.">
+  <meta name="theme-color" content="#1a1450">
+  <meta property="og:title" content="{{ d.meta.name }} | Portafolio de proyectos de datos">
+  <meta property="og:description" content="{{ d.meta.tagline_es }}">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="{{ d.meta.site_url }}">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%231a1450'/%3E%3Ctext x='32' y='28' text-anchor='middle' font-size='20' fill='%23fff' font-family='sans-serif'%3EE%3C/text%3E%3Ctext x='32' y='48' text-anchor='middle' font-size='20' fill='%23d12cf0' font-family='sans-serif'%3EM%3C/text%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700&family=Orbitron:wght@400;500&display=swap">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <a class="saltar" href="#proyectos">Ir a los proyectos</a>
+
+  <header class="hero" id="inicio">
+    <div class="barra">
+      <a class="marca" href="#inicio" aria-label="Elias Mina, inicio">{{ logo }}<span>Elias Mina</span></a>
+      <nav aria-label="Secciones">
+        <a href="#proyectos">Proyectos</a>
+        <a href="#trayectoria">Trayectoria</a>
+        <a href="#habilidades">Habilidades</a>
+        <a href="#contacto">Contacto</a>
+      </nav>
+    </div>
+    <div class="hero-grid">
+      <div class="hero-texto">
+        <h1>Portafolio de<br>proyectos</h1>
+        <p class="sub">{{ d.meta.tagline_es }}</p>
+        <div class="acciones">
+          <a class="boton" href="#proyectos">Ver proyectos</a>
+          <a class="boton" href="{{ d.meta.pdf_name }}" download>Descargar CV (PDF)</a>
+        </div>
+      </div>
+      <div class="hero-forma" aria-hidden="true">{{ hero }}</div>
+    </div>
+  </header>
+
+  <main>
+    <section class="bloque" id="sobre-mi" aria-labelledby="t-sobre">
+      <h2 id="t-sobre">Sobre mí</h2>
+      <div class="sobre-grid">
+        <div class="texto-largo">
+          {% for p in d.about_es %}<p>{{ p }}</p>{% endfor %}
+        </div>
+        <ul class="cifras" aria-label="Resultados destacados">
+          {% for m in d.metrics %}
+          <li class="cifra"{% if m.bars %} data-barras{% endif %}>
+            <strong>{{ m.value }}</strong>
+            <span>{{ m.label_es }}</span>
+            {% if m.bars %}
+            <div class="comparacion" aria-hidden="true">
+              <div class="fila"><i>CSV</i><b class="barra-datos"><u style="--w:100%"></u></b><em>2.5 GB</em></div>
+              <div class="fila"><i>Parquet</i><b class="barra-datos"><u class="destino" style="--w:12%"></u></b><em>300 MB</em></div>
+            </div>
+            {% endif %}
+          </li>
+          {% endfor %}
+        </ul>
+      </div>
+    </section>
+
+    <section class="bloque" id="proyectos" aria-labelledby="t-proyectos">
+      <h2 id="t-proyectos">Proyectos</h2>
+
+      <div class="controles">
+        <div class="pestanas" role="tablist" aria-label="Tipo de proyecto">
+          {% for g in d.groups %}
+          {% set n = d.projects|selectattr('group', 'equalto', g.id)|list|length %}
+          <button class="pestana" role="tab" type="button" data-grupo="{{ g.id }}" aria-selected="{{ 'true' if loop.first else 'false' }}">{{ g.label }} <span>{{ n }}</span></button>
+          {% endfor %}
+        </div>
+        <div class="filtros" role="group" aria-label="Filtrar por herramienta o tema">
+          {% for f in d.filters %}
+          <button class="filtro" type="button" data-filtro="{{ f }}" aria-pressed="false">{{ f }}</button>
+          {% endfor %}
+        </div>
+      </div>
+
+      <p class="vacio" hidden>Ningún proyecto de este grupo coincide con el filtro. Quita el filtro para ver todos.</p>
+
+      <div class="rejilla">
+        {% for p in d.projects %}
+        <button class="tarjeta" type="button" id="card-{{ p.id }}" data-id="{{ p.id }}"
+                data-grupo="{{ p.group }}" data-tags="{{ p.tags|join('|') }}" aria-haspopup="dialog">
+          <h3>{{ p.title }}</h3>
+          <p class="pila">{{ p.stack|join(', ') }}</p>
+          <p class="resumen">{{ p.summary }}</p>
+          <span class="mas">Ver detalle</span>
+        </button>
+        {% endfor %}
+      </div>
+    </section>
+
+    <section class="bloque" id="trayectoria" aria-labelledby="t-trayectoria">
+      <h2 id="t-trayectoria">Trayectoria</h2>
+      <ol class="ruta">
+        {% for j in d.experience %}
+        <li>
+          <p class="fecha">{{ j.period|es }}</p>
+          <h3>{{ j.role|es }} <span>en {{ j.company }}</span></h3>
+          <p>{{ j.web_blurb_es }}</p>
+        </li>
+        {% endfor %}
+      </ol>
+      <p class="formacion">
+        {% for e in d.education %}<span>{{ e.line|es|md }}</span>{% endfor %}
+      </p>
+    </section>
+
+    <section class="bloque" id="habilidades" aria-labelledby="t-habilidades">
+      <h2 id="t-habilidades">Habilidades</h2>
+      <div class="grupos">
+        {% for g in d.skills %}
+        <div class="grupo">
+          <h3>{{ g.label|es }}</h3>
+          <ul class="etiquetas">
+            {% for it in g['items'] %}<li>{{ it|es }}</li>{% endfor %}
+          </ul>
+        </div>
+        {% endfor %}
+      </div>
+    </section>
+
+    <section class="bloque" id="contacto" aria-labelledby="t-contacto">
+      <h2 id="t-contacto">Datos de contacto</h2>
+      <ul class="contacto">
+        <li><a href="#" data-email data-u="{{ d.meta.email.split('@')[0] }}" data-d="{{ d.meta.email.split('@')[1] }}">{{ d.meta.email.split('@')[0] }} [arroba] {{ d.meta.email.split('@')[1] }}</a></li>
+        <li><a href="https://www.linkedin.com/in/{{ d.meta.linkedin }}/" rel="me noopener">LinkedIn: {{ d.meta.linkedin }}</a></li>
+        <li><a href="https://github.com/{{ d.meta.github }}" rel="me noopener">GitHub: {{ d.meta.github }}</a></li>
+        <li><span>{{ d.meta.location_es }}</span></li>
+        <li><a href="{{ d.meta.pdf_name }}" download>Descargar CV (PDF)</a></li>
+      </ul>
+    </section>
+  </main>
+
+  <footer class="pie">
+    <p>Esta página y mi CV en PDF se generan juntos desde el mismo archivo. Última actualización: {{ built }}.</p>
+    <a href="#inicio">Volver al inicio</a>
+  </footer>
+
+  <dialog id="detalle" aria-labelledby="detalle-titulo">
+    <div class="detalle-cab">
+      <h3 id="detalle-titulo"></h3>
+      <button class="cerrar" type="button" data-cerrar>Cerrar</button>
+    </div>
+    <div class="detalle-cuerpo" id="detalle-cuerpo"></div>
+  </dialog>
+
+  {% for p in d.projects %}
+  <template id="tpl-{{ p.id }}">
+    <p class="pila">{{ p.stack|join(', ') }}</p>
+    <section><h4>Objetivo</h4><p>{{ p.objective }}</p></section>
+    <section><h4>Metodología</h4><p>{{ p.method }}</p></section>
+    <section><h4>Desarrollo</h4><ul>{% for x in p.process %}<li>{{ x }}</li>{% endfor %}</ul></section>
+    {% if p.bars %}
+    <div class="comparacion" aria-label="{{ p.bars.from_label }}: {{ p.bars.from_value }}. {{ p.bars.to_label }}: {{ p.bars.to_value }}.">
+      <div class="fila"><i>{{ p.bars.from_label }}</i><b class="barra-datos"><u style="--w:100%"></u></b><em>{{ p.bars.from_value }}</em></div>
+      <div class="fila"><i>{{ p.bars.to_label }}</i><b class="barra-datos"><u class="destino" style="--w:{{ p.bars.to_pct }}%"></u></b><em>{{ p.bars.to_value }}</em></div>
+    </div>
+    {% endif %}
+    <section><h4>Resultados</h4><p>{{ p.result }}</p></section>
+  </template>
+  {% endfor %}
+
+  <script src="app.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,351 @@
+# Fuente única del CV (PDF) y del sitio web.
+# Edita SOLO este archivo: el workflow genera el PDF y la página.
+# Markup permitido en textos: **negritas**. Usa “comillas curvas” para citas.
+
+meta:
+  name: Elias Mina
+  name_cv: "V. Elias Mina S."
+  pdf_name: Elias_Mina_CV_Data_Analyst.pdf
+  # Ajusta a tu URL real de GitHub Pages (usuario.github.io o usuario.github.io/repo/)
+  site_url: "https://hukitan.github.io/"
+  email: eminasol@outlook.com
+  phone: "+52 55 4093 6066"      # solo aparece en el PDF, no en la web
+  whatsapp: "525540936066"       # solo aparece en el PDF
+  linkedin: "eminasol"           # linkedin.com/in/<esto>  (verifica que sea el correcto)
+  github: "hukitan"
+  location_en: "Mexico City, Mexico"
+  location_es: "Ciudad de México"
+  tagline_es: "Encuentra un aliado para análisis de datos"
+
+summary:
+  en: "Data Analyst with 2+ years of hands-on experience in Python (Pandas, Polars, DuckDB), SQL, Power BI, Excel, R, and Tableau. At a credit and collections company, builds data infrastructure, automated portfolio allocation, past-due portfolio sales, and end-to-end reporting pipelines used daily by field agents, call centers, and supervisors. Reduced report read times from minutes to seconds and fully automated recurring operational reports. Previously specialized in recruitment analytics (Power BI, SQL, ATS data) after 5+ years in IT recruitment. Fluent in English and Spanish."
+
+about_es:
+  - "Soy Elias Mina, analista de datos bilingüe. Hoy trabajo en una empresa de crédito y cobranza, donde construyo la infraestructura de datos y la automatización detrás de la operación: motores en Python para asignar cartera, reportes que se generan y se envían solos, y dashboards en Power BI que usan a diario los equipos de campo, call center y supervisión. Una de mis optimizaciones más grandes redujo 88% el tamaño de los datos y llevó los tiempos de lectura de minutos a segundos."
+  - "Trabajo con Python (Pandas, Polars, DuckDB), SQL, Power BI, R y Tableau, y me certifiqué como Analista de Datos en TripleTen. Mi experiencia previa en reclutamiento de TI me dejó una ventaja: entiendo cómo hablan el negocio y la tecnología, y sé convertir datos en decisiones concretas."
+
+# Cifras destacadas de la web
+metrics:
+  - value: "88%"
+    label_es: "menos espacio en disco al pasar de CSV a Parquet"
+    bars: true
+  - value: "2–3 min → 4–5 s"
+    label_es: "tiempo de lectura de los archivos que alimentan los reportes"
+  - value: "100%"
+    label_es: "de los reportes semanales y diarios de crédito grupal, automatizados"
+
+experience:
+  - role: {en: "Data Mining Analyst", es: "Analista de minería de datos"}
+    company: "Exitus Credit"
+    period: {en: "Jan 2026 – Present", es: "ene 2026 – actualidad"}
+    web_blurb_es: "Infraestructura de datos, asignación automática de cartera, venta de cartera vencida y reportes que se envían solos."
+    bullets:
+      - en: "**Data infrastructure:** migrated large local CSV datasets to Parquet with Python and MotherDuck, cutting storage by 88% (2.5 GB to 300 MB) and file read times from 2–3 minutes to 4–5 seconds, speeding up report generation without a dedicated database server."
+      - en: "**Portfolio allocation:** design and run the allocation of Group Credit accounts among Commercial, Call Center, Field Collections, and External Agencies through a Python engine (Pandas, Polars, DuckDB) driven by risk rules, including the withdrawal of assignments when needed."
+      - en: "**Past-due portfolio sales:** manage the sale of past-due portfolio, validating that each account is eligible (no payments or payment promises) and removing it from active assignment before the sale."
+      - en: "**Data governance:** built the first historical tracking of portfolio assignments through bulk inserts into a corporate SQL Server, enabling full traceability and automatic account sync with field agents' mobile apps."
+      - en: "**Report automation:** fully automated weekly settlement calculators and daily Group Credit payment reports with Python; Power Automate refreshes and emails Power BI and Excel snapshots to stakeholders hands-off (workaround for no Power BI Service edit license)."
+      - en: "**Analytics and Excel automation:** lead monthly portfolio analysis and near real-time migration monitoring in Power BI (delinquency coverage, placement health, regional promoter performance); xlwings scripts connect high-volume queries to operational workbooks, eliminating manual entry and errors."
+      - en: "**Field strategy:** track and report KPIs of the “Gestores Apadrinados” recovery program to measure impact and support underperforming agents."
+  - role: {en: "Talent Acquisition Data Specialist", es: "Especialista en datos de Talent Acquisition"}
+    company: "Experis"
+    period: {en: "Oct 2025 – Dec 2025", es: "oct – dic 2025"}
+    web_blurb_es: "Dashboards de reclutamiento en Power BI sobre datos de SQL, presentados a liderazgo."
+    bullets:
+      - en: "Built recruitment performance dashboards in Power BI (data modeling from SQL sources) and Excel, presented to commercial teams and senior leadership."
+      - en: "Extracted and cleaned ATS data with SQL (views, filters, joins) and analyzed funnel conversion and key time metrics (time to cover, time to deliver viable candidates)."
+      - en: "Consolidated LATAM-level datasets (7 years of history) into focused reports for Mexico and specific periods."
+      - en: "Designed an end-to-end view of the recruitment process with all critical stages and metrics, and proposed automation approaches within corporate policies and data-access constraints."
+  - role: {en: "Sr. IT Recruiter", es: "Reclutador TI Sr."}
+    company: "CHR IT; Branchbit; Recruit IT"
+    period: {en: "Mar 2022 – Sep 2025", es: "mar 2022 – sep 2025"}
+    web_blurb_es: "Reclutamiento de TI con enfoque en métricas y analítica."
+    bullets:
+      - en: "Full-cycle IT recruitment with a data-driven approach: KPIs, ATS analytics, funnel optimization, and reduced time-to-hire."
+      - en: "Market salary analysis for IT roles, structured technical and competency-based interviews, and onboarding retention tracking."
+      - en: "Socioeconomic studies and employment reference checks using structured data analysis to ensure reliability and compliance."
+
+# Solo para el PDF (versión condensada en inglés)
+cv_projects:
+  - title: "Payment Agreement Portal"
+    right: "Exitus Credit"
+    bullets:
+      - "Web portal that retrieves a client's current balance and settlement amount by reference and generates a downloadable PDF agreement on the fly, with a QR code in the footer to verify authenticity."
+  - title: "Prize Roulette Web App"
+    stack: "Flask, Railway, MotherDuck"
+    right: "Exitus Credit"
+    bullets:
+      - "Raffle app tied to client reference lookup; stores winners in MotherDuck, sends email confirmations via SMTP, and pushes HMAC-signed webhooks into Power Automate."
+  - title: "Data Analyst Bootcamp Projects"
+    right: "TripleTen, 2024–2025"
+    bullets:
+      - "Churn prediction and customer segmentation (Model Fitness); A/B and A/A/B testing, hypothesis testing, and ICE/RICE prioritization for e-commerce and food companies."
+      - "Revenue analysis of prepaid tariffs (Megaline), marketing spend optimization (Showz), and taxi demand patterns (Zuber), using SQL, Python, and statistics."
+      - "Streamlit dashboard with 5 years of CDMX metro data, and an automated weekly YouTube trend dashboard by region and popularity."
+      - "Capstone: end-to-end analysis for a telecommunications and e-commerce case, covering preprocessing, EDA, SQL queries, hypothesis testing, business metrics, a dashboard, and a final presentation."
+  - title: "Data Projects in R and Python"
+    right: "Personal"
+    bullets:
+      - "R scripts for scoring and cleaning a psychometric test built in Google Forms and for statistical analysis of undergraduate thesis results; Python script to analyze WhatsApp conversations (reply times, word frequency)."
+      - "Developed questionnaires and analyzed psychometric data, helping peers with scoring code; implemented data validation and cleaning routines (missing values, duplicates)."
+
+skills:
+  - label: {en: "Languages and tools", es: "Lenguajes y herramientas"}
+    cv_en: "Python (Pandas, Polars, DuckDB, NumPy, Matplotlib, PySpark, SciPy, scikit-learn, Streamlit, Flask, xlwings), R, SQL (SQL Server), MotherDuck, Excel, Power BI, Power Automate, Tableau"
+    items: [Python, Pandas, Polars, DuckDB, NumPy, Matplotlib, PySpark, SciPy, scikit-learn, Streamlit, Flask, xlwings, R, "SQL Server", MotherDuck, Excel, Power BI, Power Automate, Tableau]
+  - label: {en: "Techniques", es: "Técnicas"}
+    items:
+      - {en: "Data Pipelines and ETL", es: "Pipelines de datos y ETL"}
+      - {en: "Process Automation", es: "Automatización de procesos"}
+      - {en: "Exploratory Data Analysis", es: "Análisis exploratorio de datos"}
+      - {en: "Data Visualization", es: "Visualización de datos"}
+      - {en: "Dashboard Creation", es: "Creación de dashboards"}
+      - {en: "Data Cleaning", es: "Limpieza de datos"}
+      - {en: "A/B Testing", es: "Pruebas A/B"}
+      - {en: "Web Scraping", es: "Web scraping"}
+  - label: {en: "Other", es: "Otros"}
+    items:
+      - {en: "Recruitment (5 years)", es: "Reclutamiento (5 años)"}
+      - {en: "HR processes", es: "Procesos de RR. HH."}
+      - {en: "Document Management", es: "Gestión documental"}
+      - {en: "MS Office (7 years)", es: "MS Office (7 años)"}
+  - label: {en: "Languages", es: "Idiomas"}
+    items:
+      - {en: "Spanish (Native)", es: "Español (nativo)"}
+      - {en: "English (Advanced)", es: "Inglés (avanzado)"}
+
+education:
+  - period: {en: "Aug 2024 – Mar 2025", es: "ago 2024 – mar 2025"}
+    line: {en: "**TripleTen**, Data Analyst Bootcamp – Python, Statistics, SQL, Software engineering, Web scraping", es: "**TripleTen**, Bootcamp de Analista de Datos – Python, estadística, SQL, ingeniería de software, web scraping"}
+  - period: {en: "Sept 2014 – Nov 2018", es: "sep 2014 – nov 2018"}
+    line: {en: "**UNAM**, BS degree – Neuroscience, Statistics, Data analysis, Scientific method", es: "**UNAM**, licenciatura – neurociencias, estadística, análisis de datos, método científico"}
+
+courses:
+  - en: "Udemy: Excel and Power BI for Data Analysis; Complete Excel, Beginner to Advanced (2020)"
+  - en: "MathWorks: MATLAB Onramp and Simulink Onramp (2023); EdX: Inclusion at Work (2020)"
+
+# ----- Proyectos de la web (solo español) -----
+groups:
+  - {id: pro, label: "Profesionales"}
+  - {id: formacion, label: "Formación (TripleTen)"}
+
+filters: [Python, SQL, Power BI, Tableau, Automatización, Estadística, Machine learning]
+
+projects:
+  # ===== Profesionales (Exitus Credit) =====
+  - id: asignacion-cartera
+    group: pro
+    title: "Motor de asignación automática de cartera"
+    stack: [Python, Pandas, Polars, DuckDB, SQL Server]
+    tags: [Python, SQL, Automatización]
+    summary: "Reparte las cuentas grupales vencidas entre Comercial, Call Center, Cobranza de Campo y Despachos Externos con reglas de riesgo."
+    objective: "Automatizar la asignación de cartera vencida entre los equipos de cobranza según reglas de riesgo, sin depender de procesos manuales."
+    method: "Motor en Python con reglas de riesgo y procesamiento con Pandas, Polars y DuckDB."
+    process:
+      - "Aplica las reglas de riesgo a la cartera y construye la asignación para Comercial, Call Center, Cobranza de Campo y Despachos Externos."
+      - "Gestiona el retiro de asignaciones y valida qué cuentas pueden venderse: las que no tienen pagos ni promesas de pago."
+      - "Guarda cada asignación con cargas masivas a SQL Server. Así nace el primer historial de asignaciones y las cuentas se sincronizan automáticamente con las apps móviles de los gestores."
+    result: "La asignación quedó automatizada, cada cuenta tiene historial y trazabilidad completa, y los gestores en campo reciben sus cuentas directamente en su app."
+
+  - id: csv-a-parquet
+    group: pro
+    title: "Optimización de datos: de CSV a Parquet"
+    stack: [Python, Polars, MotherDuck, Parquet]
+    tags: [Python, Automatización]
+    summary: "Archivos 88% más ligeros y lecturas de minutos a segundos, sin servidor de base de datos."
+    objective: "Reducir el tiempo de generación de reportes y el espacio en disco cuando los datos viven en OneDrive y no hay un almacenamiento tipo Snowflake, Redis o SQL."
+    method: "Migración de archivos CSV a formato Parquet con Python y MotherDuck."
+    process:
+      - "Convertí los CSV históricos a Parquet y los organicé en subcarpetas por tipo de archivo."
+      - "Los scripts de reportes pasaron a leer Parquet en lugar de CSV."
+    result: "El almacenamiento bajó 88% y la lectura de archivos pasó de 2–3 minutos a 4–5 segundos, lo que acelera todos los reportes que dependen de esos datos."
+    bars: {from_label: "CSV", from_value: "2.5 GB", to_label: "Parquet", to_value: "300 MB", to_pct: 12}
+
+  - id: reportes-automaticos
+    group: pro
+    title: "Reportes automáticos con envío por correo"
+    stack: [Python, Power Automate, Power BI, Excel]
+    tags: [Python, Power BI, Automatización]
+    summary: "Calculadoras de liquidación y reportes de pagos que se generan y se envían sin intervención."
+    objective: "Eliminar el trabajo manual de preparar y enviar los reportes semanales y diarios de crédito grupal."
+    method: "Scripts en Python que procesan los pagos y flujos de Power Automate que distribuyen los reportes."
+    process:
+      - "Un script procesa los pagos y los ordena según la asignación de cada actor de cobranza."
+      - "Como no hay licencia para editar en Power BI Service, Power Automate actualiza el reporte al terminar el script y envía por correo la captura del tablero a los interesados."
+      - "El reporte de Excel también sale con su captura de pantalla adjunta en el correo."
+      - "Las calculadoras de liquidación semanales y los reportes diarios de pagos quedaron 100% automatizados."
+    result: "Los reportes llegan solos a quien los necesita, sin captura manual."
+
+  - id: tableros-cartera
+    group: pro
+    title: "Tableros de cartera y monitoreo de migración"
+    stack: [Power BI, SQL, Python, xlwings]
+    tags: [Power BI, SQL, Python]
+    summary: "Cobertura de mora, salud de la colocación y desempeño de promotores en un solo lugar."
+    objective: "Dar seguimiento a la cartera: cobertura de mora, salud de la colocación y desempeño de los promotores regionales."
+    method: "Dashboards en Power BI, análisis estratégico mensual y monitoreo de migración casi en tiempo real."
+    process:
+      - "Modelado de dashboards en Power BI para el análisis mensual y el monitoreo de la migración de cartera."
+      - "Scripts con xlwings conectan consultas de gran volumen con los archivos de Excel ejecutivos y operativos, y eliminan la captura manual y sus errores."
+      - "Seguimiento de los indicadores del programa “Gestores Apadrinados” para medir su impacto y apoyar a los gestores con menor desempeño."
+    result: "Cobranza y dirección consultan la cartera con información actualizada y sin captura manual."
+
+  - id: portal-convenios
+    group: pro
+    title: "Portal de convenios de pago grupales"
+    stack: [Python, PDF, QR]
+    tags: [Python, Automatización]
+    summary: "Convenios en PDF al momento, con saldo del día y un QR para validar su autenticidad."
+    objective: "Generar convenios de pago grupales al momento, con el saldo y el monto de liquidación del día."
+    method: "Portal web que consulta los datos por referencia y genera el documento en el momento."
+    process:
+      - "Con la referencia, el portal obtiene el saldo actual y el monto de liquidación al día de hoy."
+      - "Genera el PDF del convenio al vuelo y permite descargarlo."
+      - "El pie del documento lleva un código QR para validar su autenticidad y vigencia."
+    result: "Cada convenio sale con datos del día y se puede verificar escaneando su QR."
+
+  - id: ruleta-sorteos
+    group: pro
+    title: "Ruleta de sorteos para clientes"
+    stack: [Python, Flask, MotherDuck, Railway, Power Automate]
+    tags: [Python, Automatización]
+    summary: "Ruleta en línea ligada a la referencia del cliente, con premios y probabilidades personalizadas."
+    objective: "Crear una ruleta de sorteos en línea que reconozca a cada cliente por su referencia y lleve los resultados a los flujos de trabajo de la empresa."
+    method: "App web en Flask desplegada en Railway, con datos en MotherDuck."
+    process:
+      - "El enlace trae la referencia del cliente: la app consulta MotherDuck, muestra su nombre (bloqueado) y avisa si la referencia no existe."
+      - "Cada cliente tiene sus propios pesos de premios, así que las probabilidades del sorteo son personalizadas."
+      - "Al girar, la app envía el resultado por correo (SMTP) y manda un webhook firmado con HMAC-SHA256 a Power Automate."
+      - "Incluye una página de consulta por referencia."
+    result: "Una ruleta lista para campañas, con premios a la medida de cada cliente, confirmación por correo y resultados integrados a Power Automate."
+
+  # ===== Formación (TripleTen) =====
+  - id: instacart
+    group: formacion
+    title: "Instacart: hábitos de compra de los clientes"
+    stack: [Python]
+    tags: [Python]
+    summary: "Limpieza de datos de varias tablas y análisis de patrones de pedido y recompra."
+    objective: "Limpiar y analizar un conjunto de datos de Instacart con múltiples tablas para entender los hábitos de compra de los clientes: patrones de pedido, productos populares y comportamiento de los pedidos repetidos."
+    method: "Procesamiento de datos de principio a fin y análisis exploratorio."
+    process:
+      - "Pedidos por hora del día y día de la semana."
+      - "Distribución de la frecuencia de pedidos de los clientes."
+      - "Los 20 productos más pedidos y los artículos reordenados."
+      - "Artículos por pedido y proporciones de repedidos por producto y por cliente."
+      - "Visualización con histogramas y diagramas de barras para comunicar los resultados con claridad."
+    result: "Información procesable sobre el comportamiento de los clientes, los patrones de entrega y la popularidad de los productos, con manipulación de datos de múltiples tablas, limpieza y visualización."
+
+  - id: showz-marketing
+    group: formacion
+    title: "Showz: optimización del gasto de marketing"
+    stack: [Python]
+    tags: [Python]
+    summary: "LTV, CAC y ROMI por canal para decidir dónde invertir en marketing."
+    objective: "Analizar el comportamiento de los usuarios, las ventas y el gasto de marketing de Showz, una empresa de venta de boletos para eventos, para optimizar el gasto y entender el valor de vida del cliente (LTV) y los costos de adquisición."
+    method: "Investigación analítica a profundidad."
+    process:
+      - "Métricas de usuarios: usuarios activos diarios, semanales y mensuales, duración de las sesiones y retención."
+      - "KPIs de ventas: tiempo hasta la primera compra, tamaño medio de pedido, ingresos por cliente (LTV) y pedidos a lo largo del tiempo."
+      - "Rendimiento de marketing: gasto total, costo de adquisición de clientes (CAC) por fuente y retorno de la inversión en marketing (ROMI) por canal."
+    result: "Recomendaciones basadas en datos para asignar mejor la inversión entre fuentes y plataformas, con estrategias de captación más eficientes y mayor rentabilidad."
+
+  - id: streamlit-autos
+    group: formacion
+    title: "Dashboard interactivo con Streamlit"
+    stack: [Python, Streamlit, Plotly]
+    tags: [Python]
+    summary: "App web para explorar anuncios de autos con gráficas que se generan al instante."
+    objective: "Desarrollar un panel interactivo en la web para anuncios de automóviles, aplicando prácticas de ingeniería de software, gestión de entornos virtuales y visualización de datos."
+    method: "Principios de desarrollo de proyectos de datos full-stack."
+    process:
+      - "Entorno virtual de Python y Git/GitHub para el control de versiones."
+      - "Análisis exploratorio del conjunto vehicles_us.csv con Plotly Express (histogramas y diagramas de dispersión) en un Jupyter Notebook."
+      - "Aplicación web en Streamlit que lee y procesa los anuncios, con botones y casillas para generar gráficas de forma dinámica."
+    result: "Una aplicación web funcional con exploración interactiva de datos, que une el análisis con la presentación y aplica prácticas básicas de ingeniería de software."
+
+  - id: churn-model-fitness
+    group: formacion
+    title: "Predicción de cancelación y estrategia de retención"
+    stack: [Python, scikit-learn]
+    tags: [Python, Machine learning, Estadística]
+    summary: "Modelo que anticipa qué clientes de un gimnasio se irán y segmentos para retenerlos."
+    objective: "Analizar los perfiles de los clientes de Model Fitness, una cadena de gimnasios, para predecir el riesgo de que se vayan el mes siguiente y desarrollar una estrategia de retención basada en datos."
+    method: "Enfoque analítico y de aprendizaje automático."
+    process:
+      - "Matriz de correlación para identificar la relación entre las características y la cancelación."
+      - "Modelo de clasificación binaria evaluado con regresión logística y Random Forest, usando exactitud, precisión y recall."
+      - "Datos normalizados y agrupación jerárquica (dendrograma) para estimar el número óptimo de clusters."
+      - "K-means para segmentar a los clientes y comparar valores medios y tasas de abandono por grupo."
+    result: "Un modelo para identificar clientes en riesgo y perfiles de usuario con estrategias accionables, base de un programa de fidelización."
+
+  - id: capstone
+    group: formacion
+    title: "Proyecto integrador de análisis de datos"
+    stack: [Python, SQL, Tableau]
+    tags: [Python, SQL, Tableau, Estadística]
+    summary: "Análisis completo de un caso de e-commerce, de la consulta SQL al dashboard y la presentación."
+    objective: "Aplicar habilidades de análisis de datos a un problema de negocio real (e-commerce) para obtener hallazgos accionables y apoyar decisiones estratégicas."
+    method: "Flujo completo de análisis, planeado y ejecutado de forma independiente."
+    process:
+      - "Exploración detallada para identificar patrones, tendencias y anomalías, con pruebas de hipótesis estadísticas."
+      - "Definición y análisis de KPIs y pruebas A/B para evaluar cambios en el comportamiento de los usuarios."
+      - "Consultas SQL para extraer y manipular los datos, y un dashboard interactivo en Tableau."
+      - "Presentación de conclusiones y recomendaciones."
+    result: "Una solución analítica completa, desde la planeación hasta comunicar los resultados a un público no técnico."
+
+  - id: musica-streaming
+    group: formacion
+    title: "Hábitos de escucha en streaming de música"
+    stack: [Python]
+    tags: [Python, Estadística]
+    summary: "Prueba de hipótesis sobre la actividad de los usuarios en dos ciudades."
+    objective: "Analizar datos de streaming de música de Springfield y Shelbyville para probar si la actividad de los usuarios cambia según la ciudad y el día de la semana."
+    method: "Análisis completo de los datos."
+    process:
+      - "Tratamiento de valores omitidos y duplicados, y normalización de nombres de columnas."
+      - "Prueba de hipótesis con métodos estadísticos en Python para comparar los patrones de actividad."
+    result: "Información sobre los hábitos de escucha por día y por ciudad, útil para decisiones basadas en datos."
+
+  - id: ab-test-ice-rice
+    group: formacion
+    title: "Prueba A/B y priorización de hipótesis"
+    stack: [Python]
+    tags: [Python, Estadística]
+    summary: "Priorización con ICE y RICE y análisis de una prueba A/B para una tienda en línea."
+    objective: "Priorizar hipótesis de marketing y analizar los resultados de una prueba A/B de una tienda en línea para aumentar los ingresos."
+    method: "Proceso analítico en dos partes."
+    process:
+      - "Priorización de 9 hipótesis con los marcos ICE y RICE, comparando sus resultados."
+      - "Análisis A/B: ingresos acumulados, tamaño medio de pedido y tasa de conversión por grupo, con detección de valores atípicos (percentiles 95 y 99)."
+      - "Pruebas estadísticas para validar la significancia y una decisión final: detener la prueba, elegir un ganador o continuarla."
+    result: "Recomendaciones de marketing apoyadas en una priorización sólida de hipótesis y en un análisis completo de la prueba A/B."
+
+  - id: videojuegos
+    group: formacion
+    title: "Ventas globales de videojuegos"
+    stack: [Python]
+    tags: [Python, Estadística]
+    summary: "Qué hace exitoso a un videojuego: plataformas, géneros y regiones."
+    objective: "Identificar los patrones que determinan el éxito de los videojuegos para planear campañas de la tienda en línea global Ice, con datos históricos de ventas, reseñas, géneros y plataformas."
+    method: "Análisis exhaustivo de datos para respaldar decisiones de negocio."
+    process:
+      - "Preparación: valores faltantes, normalización de columnas y ventas totales por juego con datos multirregión, priorizando los datos recientes."
+      - "Análisis exploratorio: lanzamientos y ventas por plataforma y año, correlación entre reseñas y ventas, y rentabilidad por género."
+      - "Perfiles regionales (NA, EU, JP) por plataforma, género y clasificación ESRB."
+      - "Pruebas de hipótesis sobre las calificaciones de usuarios: Xbox One vs. PC y Acción vs. Deportes."
+    result: "Información sobre la dinámica del mercado, el rendimiento de las plataformas y las preferencias de los consumidores por región."
+
+  - id: viajes-clima
+    group: formacion
+    title: "Demanda de viajes y efecto del clima"
+    stack: [SQL, Python]
+    tags: [SQL, Python, Estadística]
+    summary: "Viajes en taxi de Chicago: web scraping, SQL y una prueba de hipótesis sobre días de lluvia."
+    objective: "Analizar los viajes en taxi de Zuber, una empresa de viajes compartidos que se lanza en Chicago, para entender las preferencias de los pasajeros y el efecto del clima en la frecuencia y duración de los viajes."
+    method: "Análisis multifacético de los datos."
+    process:
+      - "Datos del clima obtenidos con web scraping y una base de datos SQL relacional de 5 tablas."
+      - "Análisis exploratorio con consultas SQL y visualizaciones en Python: patrones de viaje, desempeño de compañías de taxis y barrios más activos."
+      - "Prueba de hipótesis: la duración media de los viajes de The Loop al aeropuerto O'Hare cambia los sábados lluviosos."
+    result: "Información sobre el mercado de viajes compartidos de Chicago, la competencia y la influencia del clima, útil para el lanzamiento y los ajustes operativos."
