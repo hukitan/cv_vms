@@ -76,6 +76,11 @@ cv_projects:
     right: "Exitus Credit"
     bullets:
       - "Raffle app tied to client reference lookup; stores winners in MotherDuck, sends email confirmations via SMTP, and pushes HMAC-signed webhooks into Power Automate."
+  - title: "vems (Python package on PyPI)"
+    stack: "pip install vems"
+    right: "2026"
+    bullets:
+      - "Published a Python package of everyday utilities: encoding-agnostic CSV reading, a read-all-columns-as-text mode, script logging to a dedicated Desktop folder, and a desktop notification with sound when a script finishes."
   - title: "Data Analyst Bootcamp Projects"
     right: "TripleTen, 2024–2025"
     bullets:
@@ -91,8 +96,8 @@ cv_projects:
 
 skills:
   - label: {en: "Languages and tools", es: "Lenguajes y herramientas"}
-    cv_en: "Python (Pandas, Polars, DuckDB, NumPy, Matplotlib, PySpark, SciPy, scikit-learn, Streamlit, Flask, xlwings), R, SQL (SQL Server), MotherDuck, Excel, Power BI, Power Automate, Tableau"
-    items: [Python, Pandas, Polars, DuckDB, NumPy, Matplotlib, PySpark, SciPy, scikit-learn, Streamlit, Flask, xlwings, R, "SQL Server", MotherDuck, Excel, Power BI, Power Automate, Tableau]
+    cv_en: "Python (Pandas, Polars, DuckDB, NumPy, Matplotlib, PySpark, SciPy, scikit-learn, Streamlit, Flask, xlwings), R, SQL (SQL Server), MotherDuck, Excel, Power BI, Power Automate, Tableau, Python packaging (PyPI)"
+    items: [Python, Pandas, Polars, DuckDB, NumPy, Matplotlib, PySpark, SciPy, scikit-learn, Streamlit, Flask, xlwings, R, "SQL Server", MotherDuck, Excel, Power BI, Power Automate, Tableau, PyPI]
   - label: {en: "Techniques", es: "Técnicas"}
     items:
       - {en: "Data Pipelines and ETL", es: "Pipelines de datos y ETL"}
@@ -218,6 +223,24 @@ projects:
       - "Al girar, la app envía el resultado por correo (SMTP) y manda un webhook firmado con HMAC-SHA256 a Power Automate."
       - "Incluye una página de consulta por referencia."
     result: "Una ruleta lista para campañas, con premios a la medida de cada cliente, confirmación por correo y resultados integrados a Power Automate."
+
+  - id: vems-pypi
+    group: pro
+    title: "vems: paquete de Python en PyPI"
+    stack: [Python, PyPI]
+    tags: [Python, Automatización]
+    summary: "Mis utilidades de todos los días: lectura segura de CSV, logging de scripts y aviso al terminar."
+    objective: "Dejar de copiar y pegar las mismas funciones entre proyectos: reunirlas en un paquete instalable y reutilizable."
+    method: "Paquete de Python publicado en PyPI. Se instala con pip install vems."
+    process:
+      - "Lectura segura de archivos CSV, sin importar la codificación del archivo."
+      - "Opción para leer todas las columnas como texto (str) y evitar que se adivinen los tipos de dato."
+      - "Logging de scripts: guarda el registro en una carpeta del escritorio."
+      - "Notificación y sonido para avisar cuando un script termina."
+      - "Y otras utilidades pequeñas que uso a diario."
+    result: "Utilidades reutilizables disponibles con un solo comando en cualquier proyecto."
+    links:
+      - {label: "Ver en PyPI", url: "https://pypi.org/project/vems/"}
 
   # ===== Formación (TripleTen) =====
   - id: instacart

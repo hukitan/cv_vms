@@ -25,4 +25,3 @@ Settings → Pages → Source: **GitHub Actions**.
 - Nuevo proyecto: agrega un bloque en `projects:` de `cv.yaml`.
 - Nuevo año o puesto: edita `experience:`; el nombre del PDF no cambia.
 - Texto del CV en inglés y de la web en español: cada texto con `{en, es}` se usa donde corresponde.
-# cv_vms

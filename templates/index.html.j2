@@ -166,6 +166,9 @@
     </div>
     {% endif %}
     <section><h4>Resultados</h4><p>{{ p.result }}</p></section>
+    {% if p.links %}
+    <p class="enlaces">{% for l in p.links %}<a class="boton" href="{{ l.url }}" rel="noopener" target="_blank">{{ l.label }}</a>{% endfor %}</p>
+    {% endif %}
   </template>
   {% endfor %}
 

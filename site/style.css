@@ -336,6 +336,7 @@ dialog[open] { animation: abrir 0.22s ease-out; }
 .detalle-cuerpo ul { display: grid; gap: 0.5rem; padding-left: 1.1rem; list-style: disc; }
 .detalle-cuerpo li::marker { color: var(--magenta); }
 .detalle-cuerpo .comparacion { margin-top: 1.4rem; }
+.detalle-cuerpo .enlaces { margin-top: 1.6rem; display: flex; gap: 0.8rem; flex-wrap: wrap; }
 
 /* ---------- Trayectoria ---------- */
 .ruta {
