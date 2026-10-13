@@ -7,7 +7,7 @@ meta:
   name_cv: "V. Elias Mina S."
   pdf_name: Elias_Mina_CV_Data_Analyst.pdf
   # Ajusta a tu URL real de GitHub Pages (usuario.github.io o usuario.github.io/repo/)
-   site_url: "https://hukitan.github.io/cv_vms/"
+  site_url: "https://hukitan.github.io/cv_vms/"
   email: eminasol@outlook.com
   phone: "+52 55 1375 1312"      # solo aparece en el PDF, no en la web
   whatsapp: "525513751312"       # solo aparece en el PDF
